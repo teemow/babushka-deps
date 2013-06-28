@@ -39,5 +39,5 @@ dep 'babushka-deps', :github_user, :babushka_deps_repo, :babushka_deps_dir do
 end
  
 dep "basics" do
-  requires %w{vim.bin whois.bin wget.bin htop.bin iostat.bin gem-environment editorconfig-core-git.yaourt}, "babushka-deps".with("teemow", "babushka-deps", "~/.babushkai" / "deps")
+  requires %w{vim.bin whois.bin wget.bin htop.bin iostat.bin gem-environment editorconfig-core-git.yaourt}, "babushka-deps".with("teemow", "babushka-deps", "~/.babushka" / "deps")
 end
