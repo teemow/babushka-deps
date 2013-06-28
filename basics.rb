@@ -5,7 +5,20 @@ dep "htop.bin"
 dep "iostat.bin" do
   installs "sysstat"
 end
+dep "editorconfig-core-git.yaourt" do
+  provides "editorconfig"
+end
+
+dep "gem-path" do
+  met? { "~/.gem/ruby/2.0.0/bin".p.exists? and "~/.gem/ruby/2.0.0/gems".p.exists? }
+  meet { 
+    shell "mkdir -p ~/.gem/ruby/2.0.0/bin" 
+    shell "mkdir -p ~/.gem/ruby/2.0.0/gems" 
+  }
+end
+
 dep "gem-environment" do
+  requires "gem-path"
   met? {
     shell "grep rubygems ~/.zprofile"
   }
@@ -26,5 +39,5 @@ dep 'babushka-deps', :github_user, :babushka_deps_repo, :babushka_deps_dir do
 end
  
 dep "basics" do
-  requires %w{vim.bin whois.bin wget.bin htop.bin iostat.bin gem-environment}, "babushka-deps".with("teemow", "babushka-deps", "~/.babushka" / "deps")
+  requires %w{vim.bin whois.bin wget.bin htop.bin iostat.bin gem-environment editorconfig-core-git.yaourt}, "babushka-deps".with("teemow", "babushka-deps", "~/.babushkai" / "deps")
 end
