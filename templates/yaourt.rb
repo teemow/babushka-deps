@@ -5,7 +5,7 @@ meta :yaourt do
     requires_when_unmet "yaourt.src"
     met? { in_path?(provides) }
     meet {
-      log_shell "Installing #{package}", "sudo yaourt --noconfirm -Sb #{package}"
+      log_shell "Installing #{package}", "sudo yaourt --noconfirm -S #{package}"
     }
   }
 end
