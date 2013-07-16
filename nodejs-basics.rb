@@ -6,5 +6,5 @@ dep "grunt-cli.npm"
 dep "bower.npm"
 
 dep "nodejs-basics" do
-  requires "bower.npm", "yo.npm", "grunt-cli.npm", "bower.npm"
+  requires "nodejs", "bower.npm", "yo.npm", "grunt-cli.npm", "bower.npm"
 end
