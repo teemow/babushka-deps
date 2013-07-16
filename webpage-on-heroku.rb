@@ -1,10 +1,8 @@
 dep "generator-angular.npm"
-dep "generator-heroku.npm"
-dep "coffee.npm"
 dep "compass.gem"
 
 dep "webpage-on-heroku" do
-  requires "nodejs", "nodejs-basics", "heroku-toolbelt.yaourt", "generator-angular.npm", "compass.gem", "generator-heroku.npm", "coffee.npm"
+  requires "nodejs-basics", "generator-angular.npm", "compass.gem", "yo-heroku"
   met? {
     hostname = shell "hostname"
     log ""
