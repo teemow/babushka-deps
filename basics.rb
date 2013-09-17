@@ -38,6 +38,14 @@ dep 'babushka-deps', :github_user, :babushka_deps_repo, :babushka_deps_dir do
   meet { shell "git clone #{repo} #{babushka_deps_dir}" }
 end
  
+dep "hub" do
+  met? { "/usr/local/bin/hub".p.exists? }
+  meet {
+    shell "curl http://hub.github.com/standalone -sLo /usr/local/bin/hub"
+    shell "chmod +x /usr/local/bin/hub"
+  }
+end
+
 dep "basics" do
-  requires %w{vim.bin whois.bin wget.bin htop.bin iostat.bin gem-environment editorconfig-core-git.yaourt}, "babushka-deps".with("teemow", "babushka-deps", "~/.babushka" / "deps")
+  requires %w{vim.bin whois.bin wget.bin htop.bin iostat.bin gem-environment editorconfig-core-git.yaourt hub}, "babushka-deps".with("teemow", "babushka-deps", "~/.babushka" / "deps")
 end
