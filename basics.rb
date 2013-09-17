@@ -41,8 +41,8 @@ end
 dep "hub" do
   met? { "/usr/local/bin/hub".p.exists? }
   meet {
-    shell "curl http://hub.github.com/standalone -sLo /usr/local/bin/hub"
-    shell "chmod +x /usr/local/bin/hub"
+    sudo "curl http://hub.github.com/standalone -sLo /usr/local/bin/hub"
+    sudo "chmod +x /usr/local/bin/hub"
   }
 end
 
