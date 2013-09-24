@@ -18,14 +18,11 @@ dep "gem-path" do
 end
 
 dep "gem-environment" do
-  requires "gem-path"
-  met? {
-    shell "grep rubygems ~/.zprofile"
-  }
-  meet {
-    shell "echo 'PATH=$PATH:$(ruby -rubygems -e \"puts Gem.user_dir\")/bin' >> ~/.zprofile"
-    shell "echo 'export GEM_HOME=~/.gem/ruby/2.0.0' >> ~/.zprofile"
-  }
+  requires [
+    "gem-path", 
+    "env var set".with("GEM_HOME", "~/.gem/ruby/2.0.0"),
+    "env var contains".with("PATH", "$GEM_HOME/bin")
+  ]
 end
 
 dep 'babushka-deps', :github_user, :babushka_deps_repo, :babushka_deps_dir do
